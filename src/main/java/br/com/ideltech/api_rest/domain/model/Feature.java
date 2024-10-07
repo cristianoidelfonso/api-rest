@@ -3,44 +3,18 @@ package br.com.ideltech.api_rest.domain.model;
 import jakarta.persistence.*;
 import java.util.Objects;
 
-@Entity
-public class Feature {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    private String icon;
-    private String description;
+@Entity(name = "tb_feature")
+public class Feature extends BaseItem {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
+    public Feature() {
+        super();
+    }
+
     // Getters and setters...
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getIcon() {
-        return icon;
-    }
-
-    public void setIcon(String icon) {
-        this.icon = icon;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     public User getUser() {
         return user;
@@ -53,9 +27,9 @@ public class Feature {
     @Override
     public String toString() {
         return "Feature{" +
-                "id=" + id +
-                ", icon='" + icon + '\'' +
-                ", description='" + description + '\'' +
+                "id=" + this.getId() +
+                ", icon='" + this.getIcon() + '\'' +
+                ", description='" + this.getDescription() + '\'' +
                 '}';
     }
 
@@ -64,11 +38,11 @@ public class Feature {
         if (this == o) return true;
         if (!(o instanceof Feature)) return false;
         Feature feature = (Feature) o;
-        return Objects.equals(id, feature.id);
+        return Objects.equals(this.getId(), feature.getId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(this.getId());
     }
 }

@@ -1,18 +1,27 @@
 package br.com.ideltech.api_rest.domain.model;
 
 import jakarta.persistence.*;
+
+import java.math.BigDecimal;
 import java.util.Objects;
 
-@Entity
+@Entity(name = "tb_account")
 public class Account {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true)
     private String number;
+
     private String agency;
-    private float balance;
-    private float limit;
+
+    @Column(scale = 13, precision = 2)
+    private BigDecimal balance;
+
+    @Column(name = "additional_limit", scale = 13, precision = 2)
+    private BigDecimal limit;
 
     @OneToOne(mappedBy = "account")
     private User user;
@@ -43,19 +52,19 @@ public class Account {
         this.agency = agency;
     }
 
-    public float getBalance() {
+    public BigDecimal getBalance() {
         return balance;
     }
 
-    public void setBalance(float balance) {
+    public void setBalance(BigDecimal balance) {
         this.balance = balance;
     }
 
-    public float getLimit() {
+    public BigDecimal getLimit() {
         return limit;
     }
 
-    public void setLimit(float limit) {
+    public void setLimit(BigDecimal limit) {
         this.limit = limit;
     }
 
