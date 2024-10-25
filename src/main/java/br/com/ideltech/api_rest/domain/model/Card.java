@@ -18,9 +18,6 @@ public class Card {
     @Column(name = "available_limit", precision = 13, scale = 2)
     private BigDecimal limit;
 
-    @OneToOne(mappedBy = "card")
-    private User user;
-
     // Getters and setters...
 
     public Long getId() {
@@ -45,14 +42,6 @@ public class Card {
 
     public void setLimit(BigDecimal limit) {
         this.limit = limit;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     @Override

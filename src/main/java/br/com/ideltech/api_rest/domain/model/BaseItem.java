@@ -39,4 +39,26 @@ public  abstract class BaseItem {
         this.description = description;
     }
 
+    @Override
+    public String toString() {
+        return "News{" +
+                "id=" + this.getId() +
+                ", icon='" + this.getIcon() + '\'' +
+                ", description='" + this.getDescription() + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof News)) return false;
+        News news = (News) o;
+        return Objects.equals(this.getId(), news.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.getId());
+    }
+
 }

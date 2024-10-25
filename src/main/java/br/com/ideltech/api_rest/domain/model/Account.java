@@ -23,9 +23,6 @@ public class Account {
     @Column(name = "additional_limit", precision = 13, scale = 2)
     private BigDecimal limit;
 
-    @OneToOne(mappedBy = "account")
-    private User user;
-
     // Getters and setters...
 
     public Long getId() {
@@ -66,14 +63,6 @@ public class Account {
 
     public void setLimit(BigDecimal limit) {
         this.limit = limit;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     @Override

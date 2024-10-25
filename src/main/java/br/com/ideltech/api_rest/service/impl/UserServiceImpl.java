@@ -15,6 +15,7 @@ public class UserServiceImpl implements UserService {
     public UserServiceImpl(UserRepository userRepository){
         this.userRepository = userRepository;
     }
+
     @Override
     public User findById(Long id) {
         return userRepository.findById(id).orElseThrow(NoSuchElementException::new);
