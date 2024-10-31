@@ -32,6 +32,12 @@ dependencies {
 	//implementation "org.springdoc:springdoc-openapi-starter-webmvc-ui:${springdocVersion}"
 	//implementation "org.springdoc:springdoc-openapi-starter-common:${springdocVersion}"
 
+	// https://mvnrepository.com/artifact/mysql/mysql-connector-java
+	implementation 'mysql:mysql-connector-java:8.0.33'
+
+	// https://mvnrepository.com/artifact/org.postgresql/postgresql
+	// implementation 'org.postgresql:postgresql:42.1.4'
+
 	runtimeOnly 'com.h2database:h2'
 	runtimeOnly 'org.postgresql:postgresql'
 
