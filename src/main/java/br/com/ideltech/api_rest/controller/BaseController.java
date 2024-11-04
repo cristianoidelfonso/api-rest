@@ -12,7 +12,7 @@ public class BaseController {
 
     @GetMapping("/")
     ResponseEntity<String> hello() {
-        var msg = "Provisionando Postegres e criando perfil de Produção";
-        return new ResponseEntity<>("Hello World! "+msg, HttpStatus.OK);
+        var msg = "Deploy da API na nuvem Railway";
+        return new ResponseEntity<>("<p>Hello World! </p><strong>"+msg+"</strong>", HttpStatus.OK);
     }
 }
